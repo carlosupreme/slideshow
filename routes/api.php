@@ -58,7 +58,7 @@ Route::put('/slide/{id}', function (Request $request, string $id){
 });
 
 Route::get('/slide', function (){
-    $slides = Slideshow::with('files')->get();
+    $slides = Slideshow::with('files')->orderBy('id', 'desc')->get();
     return response()->json($slides);
 });
 
